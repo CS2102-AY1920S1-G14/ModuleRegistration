@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       unknownError(err, res);
     } else {
       res.render('program', {
-        title: 'Program',
+        title: 'Programmes',
         programs: programs.rows,
           role: req.session.role,
         username: req.session.username,

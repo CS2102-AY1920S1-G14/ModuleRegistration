@@ -121,7 +121,7 @@
         </button>
 
         <div class="form-group text-center my-auto">
-          <h1><%= title %> (<%= username %>)</h1>
+          <h1><%= title %></h1>
         </div>
 
 
@@ -174,11 +174,11 @@
                   <td>No action required</td>
                 <% } else if (lecture.status === 'Fail') { %>
                   <td>
-                    <input type="button" id="btn-appeal" value="Appeal"/>
+                    <input class="btn btn-info" type="button" id="btn-appeal" value="Appeal"/>
                   </td>
                 <% } else { %>
                   <td>
-                    <input type="button" id="btn-delete" value="Delete"/>
+                    <input class="btn btn-danger" type="button" id="btn-delete" value="Delete"/>
                   </td>
                 <% } %>
               </tr>

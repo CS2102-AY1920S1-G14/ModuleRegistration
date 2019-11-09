@@ -15,7 +15,7 @@ sql.query = {
     'L.quota, R.s_time_round, R.e_time_round, R.s_username, R.status, R.priority_score, R.rank_pref ' +
     'FROM Modules M NATURAL JOIN LectureSlots L NATURAL JOIN Register R ' +
     'WHERE now() > R.s_time_round AND now() < R.e_time_round AND M.a_username = $1 ' +
-    'ORDER BY mod_code, sem, day, s_time_lect, e_time_lect, s_username',
+    'ORDER BY R.mod_code, R.sem, R.day, R.s_time_lect, R.e_time_lect, R.status, R.s_username',
 
   load_programs: 'SELECT prog_name FROM Programs',
   add_program: 'INSERT INTO Programs (prog_name) VALUES ($1)',

@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       unknownError(err, res);
     } else {
       res.render('prereq', {
-        title: 'Prerequisite',
+        title: 'Prerequisites',
         children: modules.rows,
         prereqs: p.rows,
         username: req.session.username,
