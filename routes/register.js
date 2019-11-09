@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
         no_role: req.query.no_role,
         unknown: req.query.unknown,
         user_already_exist: req.query.user_already_exist,
-        success: success
+        success: false
       });
     }
   });

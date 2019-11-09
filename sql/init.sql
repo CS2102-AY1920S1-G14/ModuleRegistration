@@ -173,29 +173,31 @@ INSERT INTO Students VALUES ('e0191337', 'Computer Science', 3, now());
 INSERT INTO Students VALUES ('e0191338', 'Applied Math', 3, now());
 INSERT INTO Students VALUES ('e0191339', 'Statistics', 4, now());
 
+
 INSERT INTO Modules VALUES ('CS1010', 'Programming Methodology', 'e0134110');
 INSERT INTO Modules VALUES ('CS2102', 'Database Systems', 'e0134110');
 INSERT INTO Modules VALUES ('CS2030', 'Programming Methodology II', 'e0134110');
-INSERT INTO Modules VALUES ('CS2040', 'Data Structures and Algorithms', 'e0191330');
-INSERT INTO Modules VALUES ('CS2103T', 'Software Engineering', 'e0191330');
+INSERT INTO Modules VALUES ('CS2040', 'Data Structures and Algorithms', 'e0134110');
+--not related to prerequisite
+INSERT INTO Modules VALUES ('ACC1002', 'Financial Accounting', 'e0134110');
+INSERT INTO Modules VALUES ('GEH1036', 'Living with mathematics', 'e0134110');
+INSERT INTO Modules VALUES ('EC1301', 'Principles of Economics', 'e0134110');
+INSERT INTO Modules VALUES ('MA1521', 'Calculus for Computing', 'e0134110');
+
 INSERT INTO Modules VALUES ('CS1231', 'Discrete Structures', 'e0191330');
-INSERT INTO Modules VALUES ('CS2106', 'Operating Systems', 'e0191330');
-INSERT INTO Modules VALUES ('CS2105', 'Computer Networks', 'e0191330');
-INSERT INTO Modules VALUES ('CS2100', 'Computer Organization', 'e0191330');
-INSERT INTO Modules VALUES ('CS3219', 'Software Engineering Principles and Patterns', 'e0191330');
-INSERT INTO Modules VALUES ('CS4218', 'Software Testing', 'e0191330');
-INSERT INTO Modules VALUES ('IS2103', 'Enterprise Systems Server-side Design and Development', 'e0191330');
-INSERT INTO Modules VALUES ('ACC1002', 'Financial Accounting', 'e0191330');
-INSERT INTO Modules VALUES ('ACC3604', 'Corporate and Securities Law', 'e0191330');
+
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191331', 'CS1010');
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191332', 'CS1010');
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191335', 'CS1010');
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191335', 'CS1231');
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191337', 'CS1010');
+INSERT INTO Takes VALUES ('A', 'TRUE', 'e0191337', 'CS1231');
+
 
 INSERT INTO Prereq VALUES ('CS1010', 'CS2030');
 INSERT INTO Prereq VALUES ('CS1010', 'CS2040');
-INSERT INTO Prereq VALUES ('CS2040', 'CS2102');
+INSERT INTO Prereq VALUES ('CS1010', 'CS2102');
 INSERT INTO Prereq VALUES ('CS1231', 'CS2102');
-INSERT INTO Prereq VALUES ('CS2030', 'CS2103T');
-INSERT INTO Prereq VALUES ('CS2040', 'CS2103T');
-INSERT INTO Prereq VALUES ('CS2100', 'CS2106');
-INSERT INTO Prereq VALUES ('CS1010', 'CS2100');
 
 INSERT INTO Require VALUES ('Computer Science', 'CS1010');
 INSERT INTO Require VALUES ('Computer Science', 'CS2102');
@@ -207,84 +209,57 @@ INSERT INTO Require VALUES ('Business Analytics', 'CS1010');
 INSERT INTO Require VALUES ('Business Analytics', 'CS2030');
 INSERT INTO Require VALUES ('Business Analytics', 'CS2040');
 
-INSERT INTO Rounds VALUES ('2016-06-22 19:10:25', '2016-06-23 19:10:25');
-INSERT INTO Rounds VALUES ('2016-06-24 19:10:25', '2016-06-25 19:10:25');
-INSERT INTO Rounds VALUES ('2016-06-27 19:10:25', '2016-06-28 19:10:25');
-INSERT INTO Rounds VALUES ('2019-10-30 09:00:00', '2019-11-07 17:00:00');
-INSERT INTO Rounds VALUES ('2019-11-09 09:00:00', '2019-11-12 17:00:00');
+INSERT INTO Rounds VALUES ('2019-10-20 09:00:00', '2019-10-25 17:00:00');
+INSERT INTO Rounds VALUES ('2019-10-30 09:00:00', '2019-11-05 17:00:00');
+INSERT INTO Rounds VALUES ('2019-11-06 09:00:00', '2019-11-12 23:00:00');
 
-INSERT INTO LectureSlots VALUES ('Monday', '10:00:00', '13:00:00', 1, 'CS1010', 5);--4 people bidding, n1, quota left 1
-INSERT INTO LectureSlots VALUES ('Tuesday', '11:00:00', '14:00:00', 1, 'CS1010', 4);--4 people bidding, n2, quota left 0
-INSERT INTO LectureSlots VALUES ('Wednesday', '11:00:00', '14:00:00', 2, 'CS1010', 5);--not current sem, n3, quota left 5
-INSERT INTO LectureSlots VALUES ('Thursday', '13:00:00', '16:00:00', 1, 'CS2102', 4);--5 people bidding, n4, quota left 0
-INSERT INTO LectureSlots VALUES ('Friday', '14:00:00', '17:00:00', 1, 'CS2102', 3);--0 people bidding, n5, quota left 3
-INSERT INTO LectureSlots VALUES ('Monday', '15:00:00', '18:00:00', 2, 'CS2030', 4);--not current sem, n6, quota left 4
-INSERT INTO LectureSlots VALUES ('Tuesday', '16:00:00', '19:00:00', 1, 'CS2030', 0); --2 people bidding, n7, quota left 0
-INSERT INTO LectureSlots VALUES ('Wednesday', '16:00:00', '19:00:00', 1, 'CS2030', 2); --4 people bidding, n8, quota left 0
-INSERT INTO LectureSlots VALUES ('Wednesday', '17:00:00', '20:00:00', 2, 'CS2040', 4);--not current sem n9, quota left 4
-INSERT INTO LectureSlots VALUES ('Thursday', '18:00:00', '21:00:00', 1,'CS2040', 5);--not regulate by this admin n10, quota left 5
+INSERT INTO LectureSlots VALUES ('Monday', '10:00:00', '13:00:00', 1, 'CS1010', 4);--3 people bidding, quota left 1, n1
+INSERT INTO LectureSlots VALUES ('Tuesday', '11:00:00', '14:00:00', 1, 'CS1010', 3);--4 people bidding, quota left 0, n2
+
+INSERT INTO LectureSlots VALUES ('Monday', '15:00:00', '18:00:00', 1, 'CS2030', 3);--1 people bidding quota left 3, n3
+INSERT INTO LectureSlots VALUES ('Tuesday', '16:00:00', '19:00:00', 1, 'CS2030', 0); --2 people bidding, quota left 0, n4
+
+INSERT INTO LectureSlots VALUES ('Wednesday', '17:00:00', '20:00:00', 1, 'CS2040', 1);--2 people bidding, quota 0, n5
+
+INSERT INTO LectureSlots VALUES ('Wednesday', '17:00:00', '20:00:00', 1, 'GEH1036', 2);--2 people bidding, become zero
 
 --n1
---score: 1*(10-2)*10=80, success
-INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191331', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
---not the current round, pending
-INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191331', '2016-06-24 19:10:25', '2016-06-25 19:10:25', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
 --score: 1* (10-1)*1 = 9, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191334', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191334', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
 --score: 4* (10-1) *1 = 36, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191339', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191339', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
 --score: 3* (10-8) *1 = 6, success
-INSERT INTO Register VALUES (8, 1, 'Result Pending', 'e0191338', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (8, 1, 'Result Pending', 'e0191338', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Monday', '10:00:00', '13:00:00', 1, 'CS1010');
 
 --n2
---not the current round,pending
-INSERT INTO Register VALUES (8, 1, 'Result Pending', 'e0191338', '2016-06-24 19:10:25', '2016-06-25 19:10:25', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
 --score: 1*(10-1)*10 = 90, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191332', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
---score: 1*(10-3)*10 = 70, success
-INSERT INTO Register VALUES (3, 1, 'Result Pending', 'e0191333', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191332', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
+--score: 1*(10-3)*10 = 70, fail
+INSERT INTO Register VALUES (3, 1, 'Result Pending', 'e0191333', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
 --score: 3*(10-2)*10 = 240, success
-INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191337', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191339', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
 --score: 2*(10-4)*10 = 120, success
-INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191335', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
+INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191336', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '11:00:00', '14:00:00', 1, 'CS1010');
 
---n3
---not the current semester, pending
-INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191336', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '11:00:00', '14:00:00', 2, 'CS1010');
-
+--n3, success
+INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191331', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Monday', '15:00:00', '18:00:00', 1, 'CS2030');
 --n4
---score 1*(10-1)*10=90, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191331', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Thursday', '13:00:00', '16:00:00', 1, 'CS2102');
---score 1*(10-1)*1 = 9, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191334', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Thursday', '13:00:00', '16:00:00', 1, 'CS2102');
---score 4*(10-8)*1 = 8, fail
-INSERT INTO Register VALUES (8, 1, 'Result Pending', 'e0191339', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Thursday', '13:00:00', '16:00:00', 1, 'CS2102');
---score 2*(10-1)*10=180, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191335', '2019-10-30 09:00:00', '2019-11-07 17:00:00', 'Thursday', '13:00:00', '16:00:00', 1, 'CS2102');
---score 3*(10-1)*10=270, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191337', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Thursday', '13:00:00', '16:00:00', 1, 'CS2102');
---n5, no bidding
---n6, not current semester
-INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191333', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Monday', '15:00:00', '18:00:00', 2, 'CS2030');
---n7
 --no quota, fail
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191335', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '16:00:00', '19:00:00', 1, 'CS2030');
+INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191335', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '16:00:00', '19:00:00', 1, 'CS2030');
 --no quota, fail
-INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191332', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Tuesday', '16:00:00', '19:00:00', 1, 'CS2030');
---n8
---score 1*(10-1)*1 = 9, fail
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191334', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '16:00:00', '19:00:00', 1, 'CS2030');
---score 2*(10-1)*1 = 18, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191336', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '16:00:00', '19:00:00', 1, 'CS2030');
---score 3*(10-1)*10 = 270, success
-INSERT INTO Register VALUES (1, 1, 'Result Pending', 'e0191337', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '16:00:00', '19:00:00', 1, 'CS2030');
---score 4*(10-9)*1 = 4, fail
-INSERT INTO Register VALUES (9, 1, 'Result Pending', 'e0191339', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '16:00:00', '19:00:00', 1, 'CS2030');
---n9, not current sem, not regulated by this admin
-INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191331', '2016-06-22 19:10:25', '2016-06-23 19:10:25', 'Wednesday', '17:00:00', '20:00:00', 2, 'CS2040');
---n10, not regulate by this admin
-INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191332', '2016-06-22 19:10:25', '2016-06-23 19:10:25','Thursday', '18:00:00', '21:00:00', 1, 'CS2040');
---INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191333', '2019-10-30 09:00:00', '2019-11-05 17:00:00', 'Thursday', '18:00:00', '21:00:00', 1, 'CS2040');
+INSERT INTO Register VALUES (2, 1, 'Result Pending', 'e0191332', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Tuesday', '16:00:00', '19:00:00', 1, 'CS2030');
+
+--n5
+--score 1*(10-3)*10=70
+INSERT INTO Register VALUES (3, 1, 'Result Pending', 'e0191331', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Wednesday', '17:00:00', '20:00:00', 1, 'CS2040');
+--score 2*(10-3)*10=140
+INSERT INTO Register VALUES (3, 1, 'Result Pending', 'e0191335', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Wednesday', '17:00:00', '20:00:00', 1, 'CS2040');
+
+--n6
+--score 3*(10-4)*1 = 18, success
+INSERT INTO Register VALUES (4, 1, 'Result Pending', 'e0191337', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Wednesday', '17:00:00', '20:00:00', 1, 'GEH1036');
+--score 3*(10-5)*1 = 15, success
+INSERT INTO Register VALUES (5, 1, 'Result Pending', 'e0191338', '2019-10-20 09:00:00', '2019-10-25 17:00:00', 'Wednesday', '17:00:00', '20:00:00', 1, 'GEH1036');
 
 -- check if student has alr bid the module and insert register
 CREATE OR REPLACE FUNCTION not_register()
